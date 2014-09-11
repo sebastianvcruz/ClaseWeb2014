@@ -1,0 +1,32 @@
+Query en UsuarioMain.php: lo uso para obtener el nombre y apellido del usuari
+relacionandono con el username asignado en el index.php
+
+" SELECT usuarios.nombre AS nombre, usuarios.apellido AS apellido 
+FROM taller1web.usuarios WHERE usuarios.nombreUsuario='$nombreUsuario'";
+________________________________________________________________________________
+
+Query en UsuarioMain.php:este obtiene toda la informacion de las tres tablas de mi base de datos 
+obtengo toda la informacion necesaria para saber cuales son los trabajos del usuario
+
+
+"SELECT usuarios.nombreUsuario AS usuario, trabajos.nombre AS nombreTrabajo, trabajos.prioridad 
+AS prioridad, trabajos.fechainicio AS fecha FROM taller1web.trabajos 
+JOIN taller1web.listatrabajos ON trabajos.id=listatrabajos.idtrabajo 
+JOIN taller1web.usuarios ON listatrabajos.idusuario = usuarios.nombreUsuario WHERE 
+usuarios.nombreUsuario='$nombreUsuario'ORDER BY trabajos.prioridad"
+________________________________________________________________________________
+
+Query en registrousuario.php:su funcion es ingresar datos a la base de datos 
+con los atributos correspondientes.
+
+igual que en Trabajousuario.php
+
+INSERT INTO taller1web.usuarios(`id`, `nombre`, `apellido`, `nombreUsuario`, `clave`) 
+VALUES ('','$nombre','$apellido','$nombreUsuario','$contrasena')"
+________________________________________________________________________________
+
+Query en validarEntrada: este solo busca si los datos ingresados existen en mi base de datos y 
+da permiso para la siguiente pagina.
+
+"SELECT * FROM taller1web.usuarios WHERE usuarios.nombreUsuario='$nombreUsuario' 
+AND usuarios.clave='$contrasena'"
