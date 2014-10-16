@@ -1,0 +1,48 @@
+*{
+margin: 0;
+padding: 0;
+}
+
+@font-face {
+   font-family: 'HandShop';
+   src: local('☺');
+   src: url('../assets/fonts/Fontscafe_HandShopTypography.ttf') format('truetype');
+}
+
+nav ul{
+	font-family: 'HandShop';
+	background-color: #ffd000;
+	color: #007000;
+	margin: auto;
+	text-align: center;
+	overflow: hidden;
+	-webkit-transition: max-height 0.4s;
+	-ms-transition: max-height 0.4s;
+	-moz-transition: max-height 0.4s;
+	-o-transition: max-height 0.4s;
+	transition: max-height 0.4s;
+	position:fixed;
+	bottom:0px;
+	left:0px;
+	right:0px;
+}
+nav ul li{
+	display: inline-block;
+	padding-top: 1.5%;
+	padding-bottom: 1.5%;
+	width:32%;
+	-webkit-transition: all 0.7s ease;
+transition: all 0.7s ease;
+
+}
+ 
+nav ul li:hover{
+	background-color: #c7a200;
+	-webkit-transform: translate(20px,-50px);
+	transform: translate(20px,-50px);
+}
+a{
+	/*vertical-align: middle;*/
+	text-decoration: none;
+    color: inherit;
+}

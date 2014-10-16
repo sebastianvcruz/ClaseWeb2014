@@ -1,0 +1,41 @@
+Validar si el usuari existe en la tabla usuario en la base de dates 
+	"SELECT * FROM lorembeer.usuarios WHERE usuarios.nombre='$nombreUsuario' AND usuarios.password='$contrasena'";
+
+obtener el id de usuario con el nombre deusuario en una variable de session
+	"SELECT id FROM lorembeer.usuarios WHERE nombre='".$_SESSION['nombreUsuario']."'"
+
+Obtener el articulo mas repetido en una taba 
+	"SELECT lorembeer.comprar.idProducto,
+             lorembeer.productos.nombre AS nom, 
+             lorembeer.productos.imagen AS ima, 
+             lorembeer.productos.precio AS pre, 
+             lorembeer.productos.descripcion AS des, 
+             count(lorembeer.comprar.idProducto) c 
+             FROM lorembeer.comprar JOIN lorembeer.productos ON lorembeer.comprar.idProducto = lorembeer.productos.id 
+             GROUP BY lorembeer.comprar.idProducto ORDER BY c DESC LIMIT 1"
+
+Obtener la informacion de todos los productos disponibles 
+	"SELECT * FROM lorembeer.productos WHERE 1"
+
+Obtener informacion de el producto que se quiere agregar al carrito con una variable de session
+	SELECT id,nombre,precio FROM lorembeer.productos WHERE id=".$_SESSION['producto']."
+
+Insertar la informacion a la tabla carrito en la BD
+	"INSERT INTO lorembeer.carrito (`idProducto`, `idUsuario`)
+	 VALUES ('".$row['id']."','".$_SESSION['idUsuario']."')";
+
+Para crear la tabla del carrito
+	"SELECT nombre AS nom,precio AS pre FROM lorembeer.productos JOIN lorembeer.carrito ON 
+	 lorembeer.carrito.idProducto=lorembeer.productos.id"
+
+Obtener la informacion del carrito para guardala en el historiar/registro
+	"SELECT carrito.idProducto AS id,productos.nombre,productos.precio FROM 
+	 lorembeer.carrito JOIN lorembeer.productos ON lorembeer.carrito.idProducto=lorembeer.productos.id"
+
+Insertar la informacion en la tabla de historial/registro
+	"INSERT INTO lorembeer.comprar (`idUsuario`, `idProducto`,`fecha`)
+	 VALUES ('".$_SESSION['idUsuario']."','".$row['id']."','$date')"
+
+Obtener informacion de historial para crear la tabla
+	"SELECT productos.nombre AS nom, productos.precio AS pre, comprar.fecha AS fecha FROM 
+	lorembeer.productos JOIN lorembeer.comprar ON lorembeer.productos.id=lorembeer.comprar.idProducto WHERE comprar.idUsuario=".$_SESSION['idUsuario'].""
