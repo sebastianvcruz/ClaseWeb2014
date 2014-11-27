@@ -1,0 +1,57 @@
+#contenedor{
+	width:1140px;	
+	/*position:absolute; de alguna manera el canvas no pinta con el absolute activo*/
+	margin:0 auto;
+	margin-top: 50px;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	/*border: 1px solid #999999;*/
+}
+
+#logo{
+	position:absolute;
+	padding-top: 500px;
+	margin:0 auto;
+	top: 0;
+	bottom: 0;
+	left: 0;
+}
+
+#map_canvas{
+	display: inline-block;
+	float: left;
+}
+
+
+#iconos{
+	width:290px; 
+	height:287px;
+	/*float: right;*/
+	border: 1px solid #272e69;
+	display: inline-block;
+}
+
+
+#cajaSoltar{
+	position: inherit;
+	width:290px; 
+	height:287px;	
+	/*float: right;*/
+	border: 1px solid #272e69;
+	display: inline-block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
